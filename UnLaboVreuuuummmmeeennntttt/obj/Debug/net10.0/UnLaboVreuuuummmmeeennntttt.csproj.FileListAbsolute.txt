@@ -1,0 +1,15 @@
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.exe
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.deps.json
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.runtimeconfig.json
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.dll
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.pdb
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.AssemblyInfoInputs.cache
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.AssemblyInfo.cs
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.csproj.CoreCompileInputs.cache
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.dll
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\refint\UnLaboVreuuuummmmeeennntttt.dll
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.pdb
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\UnLaboVreuuuummmmeeennntttt.genruntimeconfig.cache
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\obj\Debug\net10.0\ref\UnLaboVreuuuummmmeeennntttt.dll
+C:\Users\julia\Desktop\UnLaboVreuuuummmmeeennntttt\UnLaboVreuuuummmmeeennntttt\bin\Debug\net10.0\test.maze
