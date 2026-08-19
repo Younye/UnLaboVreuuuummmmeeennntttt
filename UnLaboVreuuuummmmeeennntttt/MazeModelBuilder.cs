@@ -19,6 +19,12 @@ namespace UnLaboVreuuuummmmeeennntttt
             _model[new MazePosition(line, column)] = new Wall();
         }
 
+        public void AddPersonage(int line, int column)
+        {
+            Personage personage = new Personage();
+            _model[new MazePosition(line, column)] = new Room(personage);;
+        }
+
         public void finish()
         {
         }

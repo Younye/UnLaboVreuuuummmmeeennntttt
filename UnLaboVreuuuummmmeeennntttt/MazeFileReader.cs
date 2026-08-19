@@ -17,6 +17,7 @@ namespace UnLaboVreuuuummmmeeennntttt
             
             elementsReader.Add('*', builder.AddWall);
             elementsReader.Add('.', builder.AddRoom);
+            elementsReader.Add('O', builder.AddPersonage);
         }
 
         public void read(string mazeName)
