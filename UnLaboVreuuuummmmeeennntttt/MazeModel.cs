@@ -1,28 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 
 namespace UnLaboVreuuuummmmeeennntttt
 {
-    public class MazeModel : IEnumerable<KeyValuePair<MazePosition, IMazeElement>>
+    public class MazeModel(string nom) : IEnumerable<KeyValuePair<MazePosition, IMazeElement>>
     {
-        public string Name { get; }
-        private SortedDictionary<MazePosition, IMazeElement> grid;
+        public string Name { get; } = nom;
+        private readonly SortedDictionary<MazePosition, IMazeElement?> _grid = new();
 
-        public MazeModel(string nom)
+        public IMazeElement? this[MazePosition position]
         {
-            Name = nom;
-            grid = new SortedDictionary<MazePosition, IMazeElement>();
-        }
-
-        public IMazeElement this[MazePosition position]
-        {
-            get => grid.ContainsKey(position) ? grid[position] : null;
-            set => grid[position] = value;
+            get => _grid.ContainsKey(position) ? _grid[position] : null;
+            set => _grid[position] = value;
         }
 
         public IEnumerator<KeyValuePair<MazePosition, IMazeElement>> GetEnumerator()
         {
-            return grid.GetEnumerator();
+            return _grid.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
