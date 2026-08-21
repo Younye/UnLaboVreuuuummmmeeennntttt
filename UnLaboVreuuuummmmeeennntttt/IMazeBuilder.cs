@@ -7,5 +7,7 @@ namespace UnLaboVreuuuummmmeeennntttt
         void AddWall(int line, int column);
         void AddPersonage(int line, int column);
         void finish();
+        void AddDoor(int line, int column);
+        void AddKey(int line, int column);
     }
 }

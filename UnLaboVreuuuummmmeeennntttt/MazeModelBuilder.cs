@@ -22,7 +22,8 @@ namespace UnLaboVreuuuummmmeeennntttt
         public void AddPersonage(int line, int column)
         {
             Personage personage = new Personage();
-            _model[new MazePosition(line, column)] = new Room(personage);;
+            _model[new MazePosition(line, column)] = new Room(personage);
+            ;
         }
 
         public void finish()
@@ -33,5 +34,15 @@ namespace UnLaboVreuuuummmmeeennntttt
         {
             return _model;
         }
-    }
+
+        public void AddDoor(int line, int column)
+        {
+            _model[new MazePosition(line, column)] = new doors();
+        }
+
+        public void AddKey(int line, int column)
+        {
+            _model[new MazePosition(line, column)] = new Room(new MazeKey());
+        }
+}
 }

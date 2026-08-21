@@ -1,16 +1,30 @@
 using System;
-
 namespace UnLaboVreuuuummmmeeennntttt
 {
     public class MazePosition : IComparable<MazePosition>, IEquatable<MazePosition>
     {
         public int Line { get; }
         public int Column { get; }
-
-        public MazePosition(int line, int column)
+        
+        public MazePosition(int line, int column) 
+        { 
+            Line = line; 
+            Column = column; 
+        }
+        
+        public MazePosition this[Direction direction]
         {
-            Line = line;
-            Column = column;
+            get
+            {
+                switch (direction)
+                {
+                    case Direction.NORD: return new MazePosition(Line - 1, Column);
+                    case Direction.SUD: return new MazePosition(Line + 1, Column);
+                    case Direction.EST: return new MazePosition(Line, Column + 1);
+                    case Direction.OUEST: return new MazePosition(Line, Column - 1);
+                    default: return this;
+                }
+            }
         }
 
         public int CompareTo(MazePosition other)
@@ -27,14 +41,7 @@ namespace UnLaboVreuuuummmmeeennntttt
             return Line == other.Line && Column == other.Column;
         }
 
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as MazePosition);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Line, Column);
-        }
+        public override bool Equals(object obj) => Equals(obj as MazePosition);
+        public override int GetHashCode() => HashCode.Combine(Line, Column);
     }
 }

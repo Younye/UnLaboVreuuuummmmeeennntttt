@@ -4,26 +4,21 @@ namespace UnLaboVreuuuummmmeeennntttt
     {
         public IMazeObject Content { get; set; }
 
-        public Room()
-        {
-            Content = null;
-        }
-
-        public Room(IMazeObject content)
-        {
-            Content = content;
-        }
+        public Room() { Content = null; }
+        public Room(IMazeObject content) { Content = content; }
 
         public char Symbol
         {
-            get
+            get { return Content != null ? Content.Symbol : '.'; }
+        }
+
+        public void Visite(Personage personage)
+        {
+            if (Content != null)
             {
-                if (Content != null)
-                {
-                    return Content.Symbol;
-                }
-                return '.';
+                Content.Visite(personage);
             }
+            this.Content = personage;
         }
     }
 }

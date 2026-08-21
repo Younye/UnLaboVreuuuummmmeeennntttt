@@ -9,11 +9,13 @@ namespace UnLaboVreuuuummmmeeennntttt
             get => null;
             set
             {
-                if (value != null)
-                {
-                    throw new MazeException("Impossible d'ajouter un objet : un mur ne peut pas contenir d'objet.");
-                }
+                if (value != null) throw new MazeException("Impossible d'ajouter un objet : un mur ne peut pas contenir d'objet.");
             }
+        }
+
+        public void Visite(Personage personage)
+        {
+            throw new MazeException("Les personnages ne traversent pas les murs");
         }
     }
 }

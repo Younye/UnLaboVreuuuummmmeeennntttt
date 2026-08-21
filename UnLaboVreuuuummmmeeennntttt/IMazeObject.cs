@@ -1,7 +1,6 @@
 namespace UnLaboVreuuuummmmeeennntttt
 {
-    public interface IMazeObject : ISymbol
+    public interface IMazeObject : ISymbol, IVisitablePersonage
     {
-        // Type pour les objets au sens large (étend ISymbol)
     }
 }
