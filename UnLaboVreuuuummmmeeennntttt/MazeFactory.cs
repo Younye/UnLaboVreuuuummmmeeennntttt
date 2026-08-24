@@ -7,7 +7,7 @@ namespace UnLaboVreuuuummmmeeennntttt
             MazeModelBuilder builder = new MazeModelBuilder();
             MazeFileReader reader = new MazeFileReader(builder);
             
-            reader.read(name);
+            reader.Read(name);
             
             return builder.build();
         }

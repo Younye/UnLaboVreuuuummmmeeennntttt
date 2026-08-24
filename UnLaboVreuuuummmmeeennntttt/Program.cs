@@ -15,6 +15,6 @@ internal abstract class Program
             Model = model
         };
 
-        ctrl.start();
+        ctrl.Start();
     }
 }

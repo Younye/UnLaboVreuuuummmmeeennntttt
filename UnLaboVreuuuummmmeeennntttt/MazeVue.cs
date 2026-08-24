@@ -8,7 +8,7 @@ namespace UnLaboVreuuuummmmeeennntttt
         public void Display(MazeModel model, string message)
         {
             if (!model.Any()) return;
-
+            Console.WriteLine(message);
             int maxLine = model.Max(kvp => kvp.Key.Line);
             int maxCol = model.Max(kvp => kvp.Key.Column);
 
@@ -27,6 +27,14 @@ namespace UnLaboVreuuuummmmeeennntttt
                     }
                 }
                 Console.WriteLine();
+            }
+            var persos = model.Select(kvp => kvp.Value.Content).OfType<Personage>();
+
+            foreach (var perso in model.ActivePersonages)
+            {
+                string prefix = (perso == model.Personage) ? "=> " : "   ";
+                string items = string.Join(", ",perso.Bag.Select(item =>item is MazeKey ? "clé" : item.Symbol.ToString()));
+                Console.WriteLine($"{prefix}{perso.Symbol}  :{{{items}}}");
             }
         }
     }

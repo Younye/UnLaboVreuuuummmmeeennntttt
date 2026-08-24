@@ -4,26 +4,24 @@ namespace UnLaboVreuuuummmmeeennntttt
 {
     public class MazeControler
     {
-        public MazeVue Vue { get; set; }
-        public MazeModel Model { get; set; }
+        public MazeVue? Vue { get; init; }
+        public MazeModel? Model { get; init; }
 
-        public void start()
+        public void Start()
         {
             if (Vue == null || Model == null) return;
             
             bool isPlaying = true;
-            string message = "Début du jeu - Flèches pour bouger. (CTRL+MAJ+Q pour quitter)";
-
-            // Boucle principale
-            while (isPlaying && Model.Personage != null && Model.Personage.Position != null)
+            string message = "Début du jeu - Flèches: Bouger | TAB: Joueur suivant | Lettre (A-Z): Choisir joueur | (CTRL+MAJ+Q pour quitter)";
+            
+            while (isPlaying && Model.Personage.Position != null)
             {
                 Console.Clear();
                 Vue.Display(Model, message);
-                message = "";
+                message = "Flèches: Bouger | TAB: Joueur suivant | Lettre (A-Z): Choisir joueur | (CTRL+MAJ+Q pour quitter)";
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                // Check du CTRL+MAJ+Q (en console c'est Q + Modifiers)
                 if (keyInfo.Key == ConsoleKey.Q && 
                     keyInfo.Modifiers.HasFlag(ConsoleModifiers.Control) && 
                     keyInfo.Modifiers.HasFlag(ConsoleModifiers.Shift))
@@ -31,6 +29,20 @@ namespace UnLaboVreuuuummmmeeennntttt
                     isPlaying = false;
                     continue;
                 }
+
+                if (keyInfo.Key == ConsoleKey.Tab)
+                {
+                    Model.ActivePersonage();
+                    continue;
+                }
+                
+                if (char.IsLetter(keyInfo.KeyChar))
+                {
+                    char symbol = char.ToUpper(keyInfo.KeyChar);
+                    Model.ActivatePersonage(symbol);
+                    continue;
+                }
+                
 
                 try
                 {
@@ -53,10 +65,13 @@ namespace UnLaboVreuuuummmmeeennntttt
                 catch (OutOfMazeException e)
                 {
                     message = e.Message;
-                    isPlaying = false;
-                    Console.Clear();
-                    Vue.Display(Model, message);
-                    Console.WriteLine("\nBravo, vous avez trouvé la sortie !");
+                    if (Model.Personage == null)
+                    {
+                        isPlaying = false;
+                        Console.Clear();
+                        Vue.Display(Model, message);
+                        Console.WriteLine("\nBravo, vous avez trouvé la sortie !");
+                    }
                 }
                 catch (MazeException e)
                 {
