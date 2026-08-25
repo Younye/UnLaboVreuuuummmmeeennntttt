@@ -1,19 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace UnLaboVreuuuummmmeeennntttt
 {
-    public class Personage(char symbol) : IMazeObject
+    public class Personage : Combattant
     {
-        public char Symbol { get; set; } = symbol;
-        public MazePosition? Position { get; set; }
-
-        public void Visite(Personage visiteur)
+        public Personage(char symbol, int life = 10, int strength = 5, int defensive = 2) 
+            : base(symbol, life, strength, defensive)
         {
-            visiteur.Bag.ToList().ForEach(item => this.Bag.Add(item));
-            
-            visiteur.Bag.Clear();
-
-            throw new MazeException("La colision est un personnage");
         }
-        
-        public ICollection<IMazeObject> Bag { get; set; } = new HashSet<IMazeObject>();
+
+        public override void Visite(Personage personage)
+        {
+            personage.Bag.ToList().ForEach(item => Bag.Add(item));
+            personage.Bag.Clear();
+            throw new MazeException("Collision avec un personnage !");
+        }
     }
 }

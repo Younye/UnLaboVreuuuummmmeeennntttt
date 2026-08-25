@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UnLaboVreuuuummmmeeennntttt
 {
@@ -13,7 +14,8 @@ namespace UnLaboVreuuuummmmeeennntttt
         private int _personageActif = 0;
         
         public Personage? Personage => _personnageKey.Count > 0
-        ? _personageMap[_personnageKey[_personageActif]] :  null;
+            ? _personageMap[_personnageKey[_personageActif]] 
+            : null;
         
         public IEnumerable<Personage> ActivePersonages => _personnageKey.Select(k => _personageMap[k]);
 
@@ -39,13 +41,13 @@ namespace UnLaboVreuuuummmmeeennntttt
                         _personnageKey.Add(perso.Symbol);
                     }
                 }
-
             }
         }
+
         public void ActivePersonage()
         {
             if (_personnageKey.Count == 0) return;
-            _personageActif = (_personageActif + 1) % _personageMap.Count;
+            _personageActif = (_personageActif + 1) % _personnageKey.Count;
         }
 
         public void ActivatePersonage(char symbol)
@@ -53,20 +55,26 @@ namespace UnLaboVreuuuummmmeeennntttt
             int index = _personnageKey.IndexOf(symbol);
             if (index != -1) _personageActif = index;
         }
+
         public void Move(Direction direction)
         {
             if (Personage == null || Personage.Position == null) return;
 
             var currentPerso = Personage;
-            MazePosition destination = Personage.Position[direction];
+            MazePosition destination = currentPerso.Position[direction];
 
             if (this[destination] == null)
             {
-                Personage.Position = null;
+                this[currentPerso.Position]!.Content = null;
+                currentPerso.Position = null;
                 
                 _personnageKey.Remove(currentPerso.Symbol);
 
-                if (_personnageKey.Count > 0) _personageActif = _personageActif % _personnageKey.Count;
+                if (_personnageKey.Count > 0)
+                {
+                    _personageActif = _personageActif % _personnageKey.Count;
+                }
+
                 throw new OutOfMazeException($"Le personnage {currentPerso.Symbol} est sorti du Labyrinthe.");
             }
 
